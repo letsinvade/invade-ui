@@ -1,0 +1,47 @@
+.Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+  overflow: hidden;
+  overflow-y: scroll;
+
+  &.-top-positioning {
+    align-items: flex-start;
+    padding: 150px 0;
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .6);
+    z-index: 1;
+  }
+
+  &__container {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 6px;
+    z-index: 2;
+    color: black;
+
+    &.-w650 {
+      width: 650px;
+    }
+  }
+
+  &__title {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+}

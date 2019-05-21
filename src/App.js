@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import ModalExample from './components/Modal/ModalExample.jsx';
+import TabsExample from './components/Tabs/TabsExample.jsx';
+import DropdownExample from './components/Dropdown/DropdownExample.jsx';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export default class App extends React.Component{
+    constructor() {
+        super();
+        this.state = {
+            modalShown: true
+        }
+    }
+
+    onModalClose = () => {
+        this.setState({modalShown: false});
+    };
+
+    render() {
+        return (
+            <>
+                <div className="App">
+                    <div className="component-container">
+                        <TabsExample></TabsExample>
+                    </div>
+                    <div className="component-container">
+                        <ModalExample></ModalExample>
+                    </div>
+                </div>
+            </>
+        );
+    }
 }
-
-export default App;

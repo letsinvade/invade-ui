@@ -1,0 +1,8 @@
+.Tabs {
+  &__button-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    min-height: 48px;
+  }
+}

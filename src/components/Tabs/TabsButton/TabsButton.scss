@@ -1,0 +1,25 @@
+.TabsButton {
+  width: auto;
+  padding: 10px 20px;
+  background-color: lightgray;
+  color: white;
+  font-size: 12px;
+  font-weight: 900;
+  border-radius: 6px 6px 0 0;
+  height: 40px;
+  transition: .3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: lightskyblue;
+  }
+
+  &.-active {
+    background-color: limegreen;
+    height: 48px;
+  }
+
+  &__name {
+    margin-bottom: 0;
+  }
+}
