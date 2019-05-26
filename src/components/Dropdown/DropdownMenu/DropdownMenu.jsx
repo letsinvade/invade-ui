@@ -1,19 +1,12 @@
 import React from 'react';
 import './DropdownMenu.scss';
 
-export default class Dropdown extends React.Component {
-    constructor() {
-        super();
-        this.state = {
+const DropdownMenu = ({children, className}) => {
+    return (
+        <div className={className}>
+            {children}
+        </div>
+    )
+};
 
-        }
-    }
-
-    render() {
-        return(
-            <>
-
-            </>
-        )
-    }
-}
+export default DropdownMenu;

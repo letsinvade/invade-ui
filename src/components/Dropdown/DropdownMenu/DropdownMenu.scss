@@ -1,3 +1,57 @@
 .DropdownMenu {
+  $this: &;
+  position: absolute;
+  top: 30px;
+  left: 0;
 
+  &.-visible {
+    #{$this}__container {
+      min-height: 40px;
+      height: auto;
+      max-height: 200px;
+    }
+  }
+
+  &__container {
+    height: 0;
+    overflow-y: scroll;
+    padding: 5px;
+  }
+
+  &__menu {
+    list-style-type: none;
+    padding: 0;
+    background-color: white;
+    box-shadow: 0 0 5px #565656;
+    border-radius: 6px;
+    min-width: 180px;
+
+    transition: .2s;
+
+    > li {
+      padding: 5px 10px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #f4f4f4;
+      }
+
+      &:first-child {
+        border-radius: 6px 6px 0 0;
+      }
+
+      &:last-child {
+        border-radius: 0 0 6px 6px;
+      }
+
+      &.-selected {
+        background-color: lightgreen;
+        cursor: default;
+
+        &:hover {
+          background-color: lightgreen;
+        }
+      }
+    }
+  }
 }

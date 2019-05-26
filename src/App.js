@@ -27,6 +27,9 @@ export default class App extends React.Component{
                     <div className="component-container">
                         <ModalExample></ModalExample>
                     </div>
+                    <div className="component-container">
+                        <DropdownExample></DropdownExample>
+                    </div>
                 </div>
             </>
         );

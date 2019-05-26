@@ -1,7 +1,5 @@
 import React from 'react';
 import Dropdown from "./Dropdown";
-import DropdownToggler from "./DropdownToggler/DropdownToggler";
-import DropdownMenu from "./DropdownMenu/DropdownMenu";
 
 export default class DropdownExample extends React.Component {
     constructor() {
@@ -13,20 +11,31 @@ export default class DropdownExample extends React.Component {
                 'Chemistry',
                 'Philosophy',
                 'Computer Science'
+            ],
+            actionList: [
+                'Do this',
+                'Do that',
+                'Logout'
             ]
         }
     }
 
     render() {
         return(
-            <>
-                <Dropdown items={this.state.scinceList}
-                          togglerText="Cool Subjects"
-                          preSelected={this.state.scinceList[0]}
-                          label="Pick a subject you like:"
+            <div className='flex-container'>
+                <Dropdown itemList={this.state.scinceList}
+                          className="-mr5"
+                          togglerText="Select dropdown"
+                          isSelect={true}
                           onSelected={this.onDropdownSelect}>
                 </Dropdown>
-            </>
+
+                <Dropdown itemList={this.state.actionList}
+                          className="-mr5"
+                          togglerText="Profile menu Dropdown"
+                          onSelected={this.onDropdownSelect}>
+                </Dropdown>
+            </div>
         )
     }
 
