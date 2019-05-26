@@ -39,29 +39,26 @@ export default class Dropdown extends React.PureComponent {
 
         return(
             <div className={`Dropdown ${this.props.className}`} ref={elem => this.node = elem}>
-                <DropdownToggler className={`DropdownToggler ${this.state.isOpen ? '-active' : ''}`}
+                <div className={`DropdownToggler ${this.state.isOpen ? '-active' : ''}`}
                         onClick={this.toggleDropdown}>
                     <span className="DropdownToggler__name">
                         { this.state.selected ? this.state.selected : this.state.togglerText }
                     </span>
-                </DropdownToggler>
+                </div>
 
-                <DropdownMenu className={`DropdownMenu ${this.state.isOpen ? '-visible' : ''}`}>
+                <div className={`DropdownMenu ${this.state.isOpen ? '-visible' : ''}`}>
                     <div className="DropdownMenu__container">
                         <ul className="DropdownMenu__menu">
                             {menuItems}
                         </ul>
                     </div>
-                </DropdownMenu>
+                </div>
             </div>
         )
     }
 
     toggleDropdown = () => {
         this.setState({isOpen: !this.state.isOpen});
-        if (this.state.isOpen) {
-
-        }
     };
 
     selectItem = e => {
@@ -72,7 +69,7 @@ export default class Dropdown extends React.PureComponent {
         this.toggleDropdown();
     };
 
-    handleClick = (e) => {
+    handleClick = e => {
         if (!this.node.contains(e.target)) {
             if (this.state.isOpen) {
                 this.toggleDropdown();
