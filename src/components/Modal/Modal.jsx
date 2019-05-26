@@ -11,11 +11,15 @@ export default class Modal extends React.PureComponent {
     }
 
     componentDidMount() {
-        modalRoot.appendChild(this.el);
-        console.log(this.modalContainer.clientHeight);
-        this.modalBg.style.height = `${this.modalBody.clientHeight}px`;
+        setTimeout(() => {
+            modalRoot.appendChild(this.el);
+            const modalBody = this.modalBody.clientHeight;
+            const modalContainer = this.modalContainer.clientHeight;
 
-        // this.modalBg.clientHeight = this.modalContainer.clientHeight;
+            if (modalContainer > modalBody || modalBody - modalContainer < 300) {
+                this.modalBg.style.height = `${this.modalContainer.clientHeight + 300}px`;
+            }
+        }, 20)
         document.addEventListener("keydown", this.onEscPress, false);
     }
 
