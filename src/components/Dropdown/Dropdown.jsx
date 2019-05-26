@@ -68,7 +68,7 @@ export default class Dropdown extends React.PureComponent {
         if (this.state.isSelect) {
             this.setState({selected: e.currentTarget.getAttribute('name')});
         }
-        this.props.onSelected();
+        this.props.onSelected(e.currentTarget.getAttribute('name'));
         this.toggleDropdown();
     };
 

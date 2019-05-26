@@ -40,6 +40,6 @@ export default class DropdownExample extends React.Component {
     }
 
     onDropdownSelect = (data) => {
-        console.log(`The ${data} have been chosen over here`);
+        console.log(`The "${data}" have been chosen over here`);
     }
 }
