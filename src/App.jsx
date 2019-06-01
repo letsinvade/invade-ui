@@ -5,7 +5,7 @@ import TabsExample from './components/Tabs/TabsExample.jsx';
 import DropdownExample from './components/Dropdown/DropdownExample.jsx';
 import Button from "./components/Button/Button";
 import Collapse from "./components/Collapse";
-
+import Accordion from "./components/Accrodion";
 
 export default class App extends React.Component{
     constructor() {
@@ -40,6 +40,18 @@ export default class App extends React.Component{
                             <h1>Hello!</h1>
                         </Collapse>
                     </div> 
+                    <div className="component-container">
+                        <Accordion items={[
+                            {
+                                header: (<Button>Item 1</Button>),
+                                content: (<h3>Item 1 content</h3>)
+                            },
+                            {
+                                header: (<Button>Item 2</Button>),
+                                content: (<h3>Item 2 content</h3>)
+                            }
+                        ]}/>
+                    </div>
                 </div>
             </>
         );
