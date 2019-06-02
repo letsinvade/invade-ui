@@ -1,18 +1,34 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TabsButton from './TabsButton/TabsButton.jsx';
 import './Tabs.scss';
 
-export default class Tabs extends React.PureComponent {
+const propTypes = {
+    tabList: PropTypes.arrayOf(PropTypes.object).isRequired,
+    currentTab: PropTypes.string
+};
+
+const defaultProps = {
+    currentTab: 0
+};
+
+class Tabs extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            tabs: this.props.tabList,
-            currentTab: this.props.currentTab
+            currentTab: props.currentTab
         };
     }
 
     render() {
-        let buttonList = this.props.tabList.map((tab, i) => {
+        const {
+            tabList,
+
+            currentTab,
+            ...props
+        } = this.props;
+
+        let buttonList = tabList.map((tab, i) => {
             return (
                 <TabsButton
                     tabData={tab}
@@ -23,7 +39,7 @@ export default class Tabs extends React.PureComponent {
         });
 
         return (
-            <div className="Tabs">
+            <div className="Tabs" {...props}>
                 <div className="Tabs__button-row">
                     {buttonList}
                 </div>
@@ -36,3 +52,8 @@ export default class Tabs extends React.PureComponent {
         this.setState({currentTab: selector});
     }
 }
+
+Tabs.propTypes = propTypes;
+Tabs.defaultProps = defaultProps;
+
+export default Tabs;
