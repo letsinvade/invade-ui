@@ -1,17 +1,28 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Dropdown.scss';
-import DropdownToggler from "./DropdownToggler/DropdownToggler";
-import DropdownMenu from "./DropdownMenu/DropdownMenu";
 
-export default class Dropdown extends React.PureComponent {
+const propTypes = {
+    itemList: PropTypes.arrayOf(PropTypes.string).isRequired,
+    preSelected: PropTypes.string,
+    togglerText: PropTypes.string,
+    selected: PropTypes.string,
+    isSelect: PropTypes.bool
+};
+
+const defaultProps = {
+    preSelected: '',
+    togglerText: 'Pick an option',
+    selected: '',
+    isSelect: false
+};
+
+class Dropdown extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            itemList: this.props.itemList,
-            preSelected: this.props.preSelected,
-            togglerText: this.props.togglerText,
-            selected: this.props.preSelected ? this.props.preSelected : null,
-            isSelect: this.props.isSelect,
+            isSelect: props.isSelect,
+            selected: props.preSelected,
             isOpen: false
         };
     }
@@ -25,8 +36,15 @@ export default class Dropdown extends React.PureComponent {
     }
 
     render() {
+        const {
+            itemList,
+            togglerText,
+            className
+        } = this.props;
+
+
         let menuItems =
-            this.state.itemList.map((item, i) => {
+            itemList.map((item, i) => {
                 return (
                     <li key={i}
                         name={item}
@@ -38,11 +56,11 @@ export default class Dropdown extends React.PureComponent {
             });
 
         return(
-            <div className={`Dropdown ${this.props.className}`} ref={elem => this.node = elem}>
+            <div className={`Dropdown ${className}`} ref={elem => this.node = elem}>
                 <div className={`DropdownToggler ${this.state.isOpen ? '-active' : ''}`}
                         onClick={this.toggleDropdown}>
                     <span className="DropdownToggler__name">
-                        { this.state.selected ? this.state.selected : this.state.togglerText }
+                        { this.state.selected ? this.state.selected : togglerText }
                     </span>
                 </div>
 
@@ -77,3 +95,8 @@ export default class Dropdown extends React.PureComponent {
         }
     }
 }
+
+Dropdown.propTypes = propTypes;
+Dropdown.defaultProps = defaultProps;
+
+export default Dropdown;
