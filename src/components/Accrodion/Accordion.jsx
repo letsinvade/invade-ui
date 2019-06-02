@@ -4,7 +4,13 @@ import PropTypes from "prop-types";
 import Collapse from "./../Collapse";
 
 const propTypes = {
-    items: PropTypes.arrayOf(PropTypes.object).isRequired
+    items: PropTypes.arrayOf(PropTypes.object).isRequired,
+
+    activeItem: PropTypes.number
+};
+
+const defaultProps = {
+    activeItem: -1
 };
 
 class Accordion extends React.Component {
@@ -12,7 +18,7 @@ class Accordion extends React.Component {
         super(props);
 
         this.state = {
-            currentItemIndex: 0
+            currentItemIndex: props.activeItem
         };
     }
 
@@ -20,6 +26,8 @@ class Accordion extends React.Component {
         const {
             items,
             className,
+
+            activeItem,
             ...props
         } = this.props;
 
@@ -59,5 +67,6 @@ class Accordion extends React.Component {
 };
 
 Accordion.propTypes = propTypes;
+Accordion.defaultProps = defaultProps;
 
 export default Accordion;

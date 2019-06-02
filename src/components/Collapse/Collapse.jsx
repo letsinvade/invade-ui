@@ -32,8 +32,8 @@ class Collapse extends React.Component {
 
         return (
             <div
-                className={`Collapse Collapse_${
-                    collapsed ? "_collapsed": "_expanded"
+                className={`Collapse ${
+                    collapsed ? "-collapsed": "-expanded"
                 }${
                     className ? " " + className : ""
                 }`}
