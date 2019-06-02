@@ -43,12 +43,12 @@ export default class App extends React.Component{
                     <div className="component-container">
                         <Accordion items={[
                             {
-                                header: (<Button>Item 1</Button>),
-                                content: (<h3>Item 1 content</h3>)
+                                header: (active) =>  <Button>Item 1 active: {"" + active}</Button>,
+                                content: (active) => <h3>Item 1 content actiive:{"" + active}</h3>,
                             },
                             {
-                                header: (<Button>Item 2</Button>),
-                                content: (<h3>Item 2 content</h3>)
+                                header: (active) => <Button>Item 2 active:{active}</Button>,
+                                content: (active) => <h3>Item 2 content actiive:{active}</h3>
                             }
                         ]}/>
                     </div>

@@ -41,13 +41,13 @@ class Accordion extends React.Component {
                                 className="Accordion__header"
                                 onClick={() => this.setItemIndex(index)}
                             >
-                                {item.header}
+                                {item.header(index === this.state.currentItemIndex)}
                             </div>
                             <Collapse 
                                 className="Accordion__content"
                                 collapsed={ index !== this.state.currentItemIndex }
                             >
-                                {item.content}
+                                {item.content(index === this.state.currentItemIndex)}
                             </Collapse>
                         </div>
                     );
