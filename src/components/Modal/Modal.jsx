@@ -29,7 +29,7 @@ export default class Modal extends React.PureComponent {
 
                 <div className="Modal__bg"
                      ref={elem => this.modalBg = elem}
-                     onClick={this.onClick}></div>
+                     onClick={this.onClick}/>
                 <div ref={elem => this.modalContainer = elem}
                      className={`Modal__container ${this.props.containerClass}`}>
                     {this.props.children}
