@@ -32,7 +32,7 @@ class Accordion extends React.Component {
         } = this.props;
 
         return (
-            <div className={`Accordion${className ? " " + className: ""}`} {...props}>
+            <div className={`Accordion ${className ? " " + className: ""}`} {...props}>
             {
                 items.map((item, index) => {
                     return (

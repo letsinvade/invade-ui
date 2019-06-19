@@ -32,11 +32,7 @@ class Collapse extends React.Component {
 
         return (
             <div
-                className={`Collapse ${
-                    collapsed ? "-collapsed": "-expanded"
-                }${
-                    className ? " " + className : ""
-                }`}
+                className={`Collapse ${collapsed ? "-collapsed": "-expanded"}${className ? " " + className : ""}`}
                 style={{ height: (collapsed ? "0" : this.state.height), ...style }}
                 {...props}
             >

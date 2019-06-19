@@ -29,6 +29,10 @@ export default class Sidebar extends React.PureComponent {
                 {
                     name: 'Tabs',
                     link: '/tabs'
+                },
+                {
+                    name: 'Form',
+                    link: '/form'
                 }
             ]
         }

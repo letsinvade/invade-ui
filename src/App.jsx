@@ -9,6 +9,7 @@ import Accordion from "./components/Accrodion";
 import Sidebar from "./components/Sidebar/Sidebar";
 import MainPage from "./pages/MainPage/MainPage";
 import {Switch, Route} from 'react-router-dom';
+import FormExample from "./components/Form/FormExample";
 
 export default class App extends React.Component{
     constructor() {
@@ -76,6 +77,13 @@ export default class App extends React.Component{
                                                 content: (active) => <h3>Item 2 content actiive:{active}</h3>
                                             }
                                         ]}/>
+                                    </div>
+                                )
+                            }}/>
+                            <Route path="/form" render={(props) => {
+                                return (
+                                    <div className="component-container">
+                                        <FormExample/>
                                     </div>
                                 )
                             }}/>
